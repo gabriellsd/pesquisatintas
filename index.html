@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Tintas: Qual a melhor tinta?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .opcoes {
+            margin: 20px 0;
+        }
+        .opcao {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .opcao:hover {
+            background-color: #dfe6e9;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #resultado {
+            display: none;
+            margin-top: 20px;
+            font-style: italic;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pesquisa de Tintas: Qual a melhor tinta?</h1>
+        <p>Estamos conduzindo uma pesquisa para descobrir qual tinta os consumidores preferem. Escolha uma das opções abaixo com base no que você acha mais interessante para pintar sua casa. Após sua escolha, revelaremos os resultados da pesquisa!</p>
+        <div class="opcoes">
+            <div class="opcao" onclick="selecionarOpcao()">Tinta UltraBrilho 3000</div>
+            <div class="opcao" onclick="selecionarOpcao()">Tinta EcoDurável Plus</div>
+            <div class="opcao" onclick="selecionarOpcao()">Tinta ColorViva Max</div>
+        </div>
+        <button onclick="revelarPegadinha()" id="botaoEnviar" style="display: none;">Enviar Escolha</button>
+        <div id="resultado">Processando sua escolha... Aguarde um momento...</div>
+    </div>
+
+    <script>
+        let opcaoSelecionada = false;
+
+        function selecionarOpcao() {
+            if (!opcaoSelecionada) {
+                opcaoSelecionada = true;
+                document.getElementById("botaoEnviar").style.display = "block";
+                document.getElementById("resultado").style.display = "block";
+            }
+        }
+
+        function revelarPegadinha() {
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = "Analisando... Espere só mais um segundo...";
+            setTimeout(() => {
+                resultado.innerHTML = "TINTALEI GOSTOSO! Não tem tinta nenhuma aqui, era só uma pegadinha! 😄";
+                document.getElementById("botaoEnviar").style.display = "none";
+                setTimeout(() => {
+                    alert("Você foi oficialmente pintado por Gabriel! 😂");
+                }, 1000);
+            }, 2000); // Atraso para aumentar o suspense
+        }
+    </script>
+</body>
+</html>
